@@ -25,6 +25,7 @@ enable_testing()
 
 add_executable(risk_bin_test ./test/rc_binary_test.cpp)
 target_include_directories(risk_bin_test PUBLIC ${PROJECT_SOURCE_DIR})
+target_link_libraries(risk_bin_test PUBLIC fin_proto_runtime_bin_cpp)
 target_link_libraries(risk_bin_test PUBLIC gtest gtest_main ZLIB::ZLIB)
 
 include(GoogleTest)
