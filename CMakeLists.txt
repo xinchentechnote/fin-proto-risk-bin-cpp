@@ -19,6 +19,16 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(fin_proto_runtime_bin_cpp)
 
+add_library(fin_proto_risk_bin_cpp INTERFACE)
+
+target_include_directories(fin_proto_risk_bin_cpp
+    INTERFACE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
+target_link_libraries(fin_proto_risk_bin_cpp INTERFACE fin_proto_runtime_bin_cpp)
+
 find_package(ZLIB REQUIRED)
 enable_testing()
 
